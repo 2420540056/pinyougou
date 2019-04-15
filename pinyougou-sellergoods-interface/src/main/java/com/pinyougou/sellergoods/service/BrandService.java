@@ -13,4 +13,12 @@ public interface BrandService {
 	public PageResoult findPage(int pagenum,int pagesize);
 	
 	public void add(TbBrand tbBrand);
+	
+	public TbBrand findOne(Long id);
+	
+	public void update(TbBrand tbBrand);
+	
+	public void delete(Long[] id);
+	
+	public PageResoult findPage(TbBrand tbBrand, int pagenum,int pagesize);
 }
