@@ -1,6 +1,7 @@
 package com.pinyougou.sellergoods.service.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -13,7 +14,7 @@ import com.pinyougou.pojo.TbBrandExample;
 import com.pinyougou.pojo.TbBrandExample.Criteria;
 import com.pinyougou.sellergoods.service.BrandService;
 
-import entity.PageResoult;
+import entity.PageResult;
 
 @Service
 public class BrandServiceImpl implements BrandService {
@@ -32,11 +33,11 @@ public class BrandServiceImpl implements BrandService {
 	 * 根据传入的每页显示条数和当前页码进行分页
 	 */
 	@Override
-	public PageResoult findPage(int pagenum, int pagesize) {
+	public PageResult findPage(int pagenum, int pagesize) {
 		// TODO Auto-generated method stub
 		 PageHelper.startPage(pagenum, pagesize);//调用分页插件进行分页
 		Page<TbBrand> page = (Page<TbBrand>) tb.selectByExample(null);
-		return new PageResoult(page.getTotal(), page.getResult());
+		return new PageResult(page.getTotal(), page.getResult());
 	}
 
 
@@ -89,7 +90,7 @@ public class BrandServiceImpl implements BrandService {
 
 
 	@Override
-	public PageResoult findPage(TbBrand tbBrand, int pagenum, int pagesize) {
+	public PageResult findPage(TbBrand tbBrand, int pagenum, int pagesize) {
 		 PageHelper.startPage(pagenum, pagesize);//调用分页插件进行分页
 		 
 		 TbBrandExample example=new TbBrandExample();
@@ -107,7 +108,14 @@ public class BrandServiceImpl implements BrandService {
 		 Page<TbBrand> page = (Page<TbBrand>) tb.selectByExample(example);
 		 
 		// TODO Auto-generated method stub
-		 return new PageResoult(page.getTotal(), page.getResult());
+		 return new PageResult(page.getTotal(), page.getResult());
+	}
+
+
+	@Override
+	public List<Map> selectOptionList() {
+		
+		return tb.selectOptionList();
 	}
 
 }

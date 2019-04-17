@@ -1,6 +1,7 @@
 package com.pinyougou.manager.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -12,7 +13,7 @@ import com.alibaba.dubbo.rpc.service.EchoService;
 import com.pinyougou.pojo.TbBrand;
 import com.pinyougou.sellergoods.service.BrandService;
 
-import entity.PageResoult;
+import entity.PageResult;
 import entity.Result;
 
 @RestController
@@ -32,9 +33,9 @@ public class BrandController {
 	 * @return
 	 */
 	@RequestMapping("/findPage")
-	public PageResoult findByPage(int pageNum,int pageSize) {
-		PageResoult pageResoult = brandService.findPage(pageNum, pageSize);
-		return pageResoult;
+	public PageResult findByPage(int pageNum,int pageSize) {
+		PageResult pageResult = brandService.findPage(pageNum, pageSize);
+		return pageResult;
 	}
 	
 	/**
@@ -99,8 +100,17 @@ public class BrandController {
 	 * @return
 	 */
 	@RequestMapping("/search")
-	public PageResoult search(@RequestBody TbBrand tbBrand,int page,int size) {
+	public PageResult search(@RequestBody TbBrand tbBrand,int page,int size) {
 		
 		return brandService.findPage(tbBrand,page,size);
    }
+	
+	/**
+	 * @return
+	 */
+	@RequestMapping("/selectOptionList")
+	public List<Map> selectOptionList(){
+		
+		return brandService.selectOptionList();
+	}
 }

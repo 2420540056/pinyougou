@@ -1,7 +1,6 @@
 G:\eclipse-workespace\pinyougou-parent\pinyougou-pojo\src\main\java\com\pinyougou\pojo\TbCitiesExample.java
 G:\eclipse-workespace\pinyougou-parent\pinyougou-pojo\src\main\java\com\pinyougou\pojo\TbContent.java
 G:\eclipse-workespace\pinyougou-parent\pinyougou-pojo\src\main\java\com\pinyougou\pojo\TbSpecificationOptionExample.java
-G:\eclipse-workespace\pinyougou-parent\pinyougou-pojo\src\main\java\entity\PageResoult.java
 G:\eclipse-workespace\pinyougou-parent\pinyougou-pojo\src\main\java\com\pinyougou\pojo\TbGoodsDesc.java
 G:\eclipse-workespace\pinyougou-parent\pinyougou-pojo\src\main\java\com\pinyougou\pojo\TbSeckillOrder.java
 G:\eclipse-workespace\pinyougou-parent\pinyougou-pojo\src\main\java\com\pinyougou\pojo\TbAddressExample.java
@@ -20,6 +19,7 @@ G:\eclipse-workespace\pinyougou-parent\pinyougou-pojo\src\main\java\com\pinyougo
 G:\eclipse-workespace\pinyougou-parent\pinyougou-pojo\src\main\java\com\pinyougou\pojo\TbUserExample.java
 G:\eclipse-workespace\pinyougou-parent\pinyougou-pojo\src\main\java\com\pinyougou\pojo\TbProvinces.java
 G:\eclipse-workespace\pinyougou-parent\pinyougou-pojo\src\main\java\com\pinyougou\pojo\TbBrand.java
+G:\eclipse-workespace\pinyougou-parent\pinyougou-pojo\src\main\java\com\pinyougou\pojogroup\Specification.java
 G:\eclipse-workespace\pinyougou-parent\pinyougou-pojo\src\main\java\com\pinyougou\pojo\TbOrderItemExample.java
 G:\eclipse-workespace\pinyougou-parent\pinyougou-pojo\src\main\java\com\pinyougou\pojo\TbContentCategory.java
 G:\eclipse-workespace\pinyougou-parent\pinyougou-pojo\src\main\java\com\pinyougou\pojo\TbGoodsDescExample.java
@@ -34,6 +34,7 @@ G:\eclipse-workespace\pinyougou-parent\pinyougou-pojo\src\main\java\com\pinyougo
 G:\eclipse-workespace\pinyougou-parent\pinyougou-pojo\src\main\java\com\pinyougou\pojo\TbOrderItem.java
 G:\eclipse-workespace\pinyougou-parent\pinyougou-pojo\src\main\java\com\pinyougou\pojo\TbPayLog.java
 G:\eclipse-workespace\pinyougou-parent\pinyougou-pojo\src\main\java\com\pinyougou\pojo\TbSpecification.java
+G:\eclipse-workespace\pinyougou-parent\pinyougou-pojo\src\main\java\entity\PageResult.java
 G:\eclipse-workespace\pinyougou-parent\pinyougou-pojo\src\main\java\com\pinyougou\pojo\TbCities.java
 G:\eclipse-workespace\pinyougou-parent\pinyougou-pojo\src\main\java\com\pinyougou\pojo\TbSeckillGoods.java
 G:\eclipse-workespace\pinyougou-parent\pinyougou-pojo\src\main\java\com\pinyougou\pojo\TbBrandExample.java
