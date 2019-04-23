@@ -33,6 +33,7 @@ app.controller('baseController',function($scope){
     	//切换页码
 	    	$scope.search( $scope.paginationConf.currentPage,$scope.paginationConf.itemsPerPage);
   }
+    	
      $scope.selectIds=[];
 	   	  $scope.updateSelectIds=function($event,id){
 	   		  if($event.target.checked){

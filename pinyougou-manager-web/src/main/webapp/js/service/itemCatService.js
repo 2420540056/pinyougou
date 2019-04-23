@@ -1,5 +1,9 @@
 //服务层
 app.service('itemCatService',function($http){
+	//根据id查询列表
+	this.findByParentId=function(parentId){
+		return $http.get('../itemCat/findByParentId.do?parentId='+parentId); 
+		}
 	    	
 	//读取列表数据绑定到表单中
 	this.findAll=function(){

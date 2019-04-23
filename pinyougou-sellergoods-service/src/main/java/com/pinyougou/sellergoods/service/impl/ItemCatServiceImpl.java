@@ -79,6 +79,10 @@ public class ItemCatServiceImpl implements ItemCatService {
 	}
 	
 	
+		/* (non-Javadoc)
+		 * 模糊查询
+		 * @see com.pinyougou.sellergoods.service.ItemCatService#findPage(com.pinyougou.pojo.TbItemCat, int, int)
+		 */
 		@Override
 	public PageResult findPage(TbItemCat itemCat, int pageNum, int pageSize) {
 		PageHelper.startPage(pageNum, pageSize);
@@ -96,5 +100,19 @@ public class ItemCatServiceImpl implements ItemCatService {
 		Page<TbItemCat> page= (Page<TbItemCat>)itemCatMapper.selectByExample(example);		
 		return new PageResult(page.getTotal(), page.getResult());
 	}
+
+		/* (non-Javadoc)
+		 * 根据上级id查询列表
+		 * 
+		 * @see com.pinyougou.sellergoods.service.ItemCatService#findByParentId(java.lang.Long)
+		 */
+		@Override
+		public List<TbItemCat> findByParentId(Long parentId) {
+			TbItemCatExample tbItemCatExample=new TbItemCatExample();
+			Criteria create = tbItemCatExample.createCriteria();
+			create.andParentIdEqualTo(parentId);
+			
+			return itemCatMapper.selectByExample(tbItemCatExample);
+		}
 	
 }
