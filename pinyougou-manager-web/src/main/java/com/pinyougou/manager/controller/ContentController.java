@@ -49,6 +49,7 @@ public class ContentController {
 	 */
 	@RequestMapping("/add")
 	public Result add(@RequestBody TbContent content){
+		System.out.println(content.getCategoryId());
 		try {
 			contentService.add(content);
 			return new Result(true, "增加成功");
@@ -109,6 +110,7 @@ public class ContentController {
 	 */
 	@RequestMapping("/search")
 	public PageResult search(@RequestBody TbContent content, int page, int rows  ){
+		
 		return contentService.findPage(content, page, rows);		
 	}
 	

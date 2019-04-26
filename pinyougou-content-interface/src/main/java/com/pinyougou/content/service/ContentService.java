@@ -9,6 +9,14 @@ import entity.PageResult;
  *
  */
 public interface ContentService {
+	
+	
+	/**
+	* 根据广告类型 ID 查询列表
+	* @param key
+	* @return
+	*/
+	public List<TbContent> findByCategoryId(Long categoryId);
 
 	/**
 	 * 返回全部列表

@@ -1,7 +1,41 @@
  //控制层 
-app.controller('contentController' ,function($scope,$controller ,uploadService  ,contentService){	
+app.controller('contentController' ,function($scope,$controller ,uploadService ,contentCategoryService ,contentService){	
 	
 	$controller('baseController',{$scope:$scope});//继承
+	
+	$scope.findContentCategoryList=function(){
+		
+		contentCategoryService.findAll().success(
+				function(response){
+						
+					$scope.contentCategoryList=response;
+				}
+		)
+		
+	}
+	$scope.titles=["","首页轮播广告","今日推荐","活动专区","猜你喜欢","服装楼层广告"]
+	$scope.status=["无效","有效"];
+	
+	$scope.uploadFile=function(){
+		
+		uploadService.uploadFile().success(
+				
+				function(response){
+				
+					if(response.success){
+						$scope.entity.pic=response.mssage
+					}else{
+						alert("上传失败")
+					}
+				}
+				
+		).error(
+				function(){
+					alert("上传出错!!")
+				}
+		);
+		
+	}
 	
     //读取列表数据绑定到表单中  
 	$scope.findAll=function(){

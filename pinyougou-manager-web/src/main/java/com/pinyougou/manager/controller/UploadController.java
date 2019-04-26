@@ -17,6 +17,7 @@ public class UploadController {
 
 	@RequestMapping("/upload")
 	public Result upload(MultipartFile file) {
+		System.out.println("AAAAAAAAA");
 		String filename = file.getOriginalFilename();
 		//获取文件扩展名
 		String extName = filename.substring(filename.lastIndexOf(".")+1);

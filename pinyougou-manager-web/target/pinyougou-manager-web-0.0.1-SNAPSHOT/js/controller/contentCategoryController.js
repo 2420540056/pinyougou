@@ -1,7 +1,15 @@
  //控制层 
-app.controller('contentCategoryController' ,function($scope,$controller   ,contentCategoryService){	
+app.controller('contentCategoryController' ,function($scope,$controller ,contentCategoryService){	
 	
 	$controller('baseController',{$scope:$scope});//继承
+	//加载广告
+	$scope.findContentCategoryList=function(){
+		contentCategoryService.findAll().success(
+				function(response){
+					$scope.contentCategoryList=response 
+				}
+		);
+	}
 	
     //读取列表数据绑定到表单中  
 	$scope.findAll=function(){

@@ -7,6 +7,7 @@
   </parent>
   <artifactId>pinyougou-shop-web</artifactId>
   <packaging>war</packaging>
+  
   <dependencies>
   
   <!-- springsecurity -->
