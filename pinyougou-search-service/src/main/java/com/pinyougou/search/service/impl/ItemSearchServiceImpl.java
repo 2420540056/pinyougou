@@ -228,9 +228,13 @@ public class ItemSearchServiceImpl implements ItemSearchService {
 		return map;
 	}
 
+	/* (non-Javadoc)导入到索引库
+	 * @see com.pinyougou.search.service.ItemSearchService#importList(java.util.List)
+	 */
 	@Override
 	public void importList(List list) {
-		solrTemplate.saveBean(list);
+		System.out.println("solr:------"+list);
+		solrTemplate.saveBeans(list);
 		solrTemplate.commit();
 		
 	}
