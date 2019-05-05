@@ -1,8 +1,10 @@
 package com.pinyougou.sellergoods.service.impl;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.transaction.annotation.Transactional;
 import org.w3c.dom.ls.LSInput;
 
@@ -36,6 +38,8 @@ public class TypeTemplateServiceImpl implements TypeTemplateService {
 	private TbTypeTemplateMapper typeTemplateMapper;
 	@Autowired
 	private TbSpecificationOptionMapper  specificationOptionMapper;
+	@Autowired
+	private RedisTemplate redisTemplate;
 	
 	/**
 	 * 查询全部
@@ -92,6 +96,24 @@ public class TypeTemplateServiceImpl implements TypeTemplateService {
 		}		
 	}
 	
+	/**
+	 * 将规格信息存入redis
+	 */
+	private void saveRedis() {
+		List<Map> list=new ArrayList<>();
+		List<TbTypeTemplate> tbTypeTemplates = findAll();//缓存前获取所有数据
+		
+		for (TbTypeTemplate tbTypeTemplate : tbTypeTemplates) {
+			List<Map> brands = JSON.parseArray(tbTypeTemplate.getBrandIds(),Map.class);
+			redisTemplate.boundHashOps("brandList").put(tbTypeTemplate.getId(),brands);
+			//List<Map> specs = JSON.parseArray(tbTypeTemplate.getSpecIds(),Map.class);
+			List<Map> specList = findSpecList(tbTypeTemplate.getId());
+			redisTemplate.boundHashOps("specList").put(tbTypeTemplate.getId(),specList);
+			
+		}
+		
+		
+	}
 	
 		@Override
 	public PageResult findPage(TbTypeTemplate typeTemplate, int pageNum, int pageSize) {
@@ -116,7 +138,8 @@ public class TypeTemplateServiceImpl implements TypeTemplateService {
 	
 		}
 		
-		Page<TbTypeTemplate> page= (Page<TbTypeTemplate>)typeTemplateMapper.selectByExample(example);		
+		Page<TbTypeTemplate> page= (Page<TbTypeTemplate>)typeTemplateMapper.selectByExample(example);
+		saveRedis();//存入缓存
 		return new PageResult(page.getTotal(), page.getResult());
 	}
 

@@ -48,6 +48,7 @@ public class SolrUtil {
 	}
 
 	public static void main(String[] args) {
+		
 		ApplicationContext context=new
 				ClassPathXmlApplicationContext("classpath*:spring/applicationContext*.xml");
 				SolrUtil solrUtil= (SolrUtil) context.getBean("solrUtil");
