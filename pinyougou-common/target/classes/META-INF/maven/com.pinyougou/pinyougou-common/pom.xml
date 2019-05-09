@@ -18,6 +18,7 @@
 			<artifactId>commons-fileupload</artifactId>
 		</dependency> 
 		
+		
 		 
 	 <dependency>
 	
@@ -29,5 +30,11 @@
 		<artifactId>spring-data-redis</artifactId>
 	</dependency> 
   	
+  	
+  	<dependency>
+		<groupId>javax.servlet</groupId>
+		<artifactId>servlet-api</artifactId>
+		<scope>provided</scope>
+	</dependency>
   </dependencies>
 </project>
