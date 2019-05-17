@@ -37,6 +37,12 @@ public class CartServiceImpl implements CartService {
 	public List<Cart> addGoodsToCartList(List<Cart> cartList, Long itemId, Integer num) {
 		// 1.根据商品 SKU ID 查询 SKU 商品信息
 		TbItem item = tbItemMapper.selectByPrimaryKey(itemId);
+		if(item==null){
+			throw new RuntimeException("商品不存在");
+		}
+		if(!item.getStatus().equals("1")){
+			throw new RuntimeException("商品状态不合法");
+		}	
 		// 2.获取商家 ID
 		String sellerId = item.getSellerId();
 		// 3.根据商家 ID 判断购物车列表中是否存在该商家的购物车
@@ -143,6 +149,7 @@ public class CartServiceImpl implements CartService {
 	public List<Cart> findCartListFromRedis(String username) {
 		System.out.println("从redis中获取用户购物车"+username);
 		List<Cart> cartList = (List<Cart>) redisTemplate.boundHashOps("cartList").get(username);
+		System.out.println(cartList+"cartlsit");
 		if(cartList==null) {
 			cartList=new ArrayList<>();//如果redis中没有就给他一个空集合
 		}
